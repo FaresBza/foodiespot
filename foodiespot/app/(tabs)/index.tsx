@@ -1,18 +1,16 @@
 import { MapPin, Search } from 'lucide-react-native';
-import { Alert, RefreshControl, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { RefreshControl, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { CategoryList } from '@/components/category-list';
 import { RestaurantCard } from '@/components/restaurant-card';
-import { restaurantAPI } from '@/services/api';
+import useRestaurantAPI from '@/hooks/useRestaurantAPI';
 import { locationService } from '@/services/location';
-import { Restaurant } from '@/types';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { loadData, restaurants, loading } = useRestaurantAPI();
   const [refreshing, setRefreshing] = useState(false);
   const [location, setLocation] = useState<string>('Locating...');
 
@@ -20,20 +18,7 @@ export default function HomeScreen() {
     // Fetch restaurants data
     loadData();
     getCurrentLocation();
-  }, []);
-
-  const loadData = async () => {
-    try {
-      const data = await restaurantAPI.getRestaurants();
-      setRestaurants(data);
-    } catch (error) {
-      // log.error("Failed to load restaurants", error);
-      Alert.alert("Error", "Failed to load restaurants");
-    }
-    finally {
-      setLoading(false);
-    }
-  };
+  }, [loadData]);
 
   const getCurrentLocation = async () => {
     const coords = await locationService.getCurrentLocation();
