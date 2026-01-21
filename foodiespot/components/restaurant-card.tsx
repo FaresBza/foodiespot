@@ -19,6 +19,10 @@ export const RestaurantCard: React.FC<Props> = ({ restaurant, onPress, compact }
             <View style={styles.content}>
                 <View style={styles.header}>
                     <Text style={styles.name} numberOfLines={1}>{restaurant.name}</Text>
+                    <View style={styles.metaItem}>
+                        <Star size={16} color="#f95625" />
+                        <Text style={styles.metaText}>{restaurant.rating} {restaurant.reviewsCount} avis</Text>
+                    </View>
                     <View style={styles.badge}>
                         <Text style={styles.badgeText}>{restaurant.priceRange}</Text>
                     </View>
@@ -26,17 +30,14 @@ export const RestaurantCard: React.FC<Props> = ({ restaurant, onPress, compact }
 
                 <Text style={styles.cuisine}>{restaurant.cuisine}</Text>
                 <View style={styles.meta}>
+
                     <View style={styles.metaItem}>
-                        <Star size={16} color="#FF6B35" />
-                        <Text style={styles.metaText}>{restaurant.rating} {restaurant.reviewsCount} avis</Text>
-                    </View>
-                    <View style={styles.metaItem}>
-                        <Clock size={16} color="#FF6B35" />
+                        <Clock size={16} color="#f95625" />
                         <Text style={styles.metaText}>{restaurant.deliveryTime} min</Text>
                     </View>
 
                     <View style={styles.metaItem}>
-                        <MapPin size={16} color="#FF6B35" />
+                        <MapPin size={16} color="#f95625" />
                         <Text style={styles.metaText}>{restaurant.distance} km</Text>
                     </View>
                     {!compact && <Text style={styles.description} numberOfLines={2}>{restaurant.description}</Text>}
@@ -53,7 +54,7 @@ export const RestaurantCard: React.FC<Props> = ({ restaurant, onPress, compact }
 
 const styles = StyleSheet.create({
     card: {
-        flexDirection: 'row',
+        flexDirection: 'column',
         marginBottom: 16,
         backgroundColor: '#FFF',
         borderRadius: 16,
@@ -68,8 +69,8 @@ const styles = StyleSheet.create({
         marginBottom: 12,
     },
     image: {
-        width: 120,
-        height: 120,
+        width: 420,
+        height: 180,
     },
     compactImage: {
         width: 100,
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
     },
     badgeText: {
-        color: '#FF6B35',
+        color: '#f95625',
         fontSize: 12,
         fontWeight: '600',
     },

@@ -2,11 +2,11 @@ import { Coffee, IceCream2, Pizza, Sandwich, UtensilsCrossed } from 'lucide-reac
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const categories = [
-    { label: 'Burger', icon: <Sandwich size={18} color="#FF6B35" /> },
-    { label: 'Pizza', icon: <Pizza size={18} color="#FF6B35" /> },
-    { label: 'Sushi', icon: <UtensilsCrossed size={18} color="#FF6B35" /> },
-    { label: 'Healthy', icon: <Coffee size={18} color="#FF6B35" /> },
-    { label: 'Desserts', icon: <IceCream2 size={18} color="#FF6B35" /> },
+    { label: 'Burger', icon: <Sandwich size={18} color="#f95625" /> },
+    { label: 'Pizza', icon: <Pizza size={18} color="#f95625" /> },
+    { label: 'Sushi', icon: <UtensilsCrossed size={18} color="#f95625" /> },
+    { label: 'Healthy', icon: <Coffee size={18} color="#f95625" /> },
+    { label: 'Desserts', icon: <IceCream2 size={18} color="#f95625" /> },
 ];
 
 export const CategoryList: React.FC = () => {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         marginRight: 12,
     },
     chipText: {
-        color: '#FF6B35',
+        color: '#f95625',
         fontWeight: '600',
     }
 });

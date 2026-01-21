@@ -114,12 +114,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         paddingVertical: 8,
         borderRadius: 20,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#fff4ef',
         marginRight: 8,
     },
     filterChipText: {
         fontSize: 14,
-        color: '#666',
+        color: '#f95625',
     },
     filterChipTextActive: {
         color: '#fff',
