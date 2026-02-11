@@ -7,6 +7,7 @@ import { restaurantAPI } from "@/services/api";
 import { Restaurant, SearchFilters } from "@/types";
 import { Filter, Search } from "lucide-react-native";
 
+import { router } from 'expo-router';
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SearchScreen() {
@@ -14,6 +15,7 @@ export default function SearchScreen() {
     const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
     const [filters, setFilters] = useState<SearchFilters>({});
     const [showFilters, setShowFilters] = useState(false);
+
 
     useEffect(() => {
         loadRestaurants();
